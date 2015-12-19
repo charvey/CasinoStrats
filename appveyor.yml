@@ -3,5 +3,4 @@ install:
   - dnvm upgrade
 
 before_build:
-  - ps: dir C:\Users\appveyor\AppData\Local\NuGet\Cache
-  - nuget restore -verbosity detailed src\CasinoStrats.sln
+  - nuget restore src\CasinoStrats.sln -verbosity detailed
