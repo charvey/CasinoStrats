@@ -3,6 +3,9 @@ install:
   - dnvm upgrade
 
 before_build:
+  - rd /s /q C:\Tools\nuget
+  - md C:\Tools\nuget
+  - ps: (New-Object Net.WebClient).DownloadFile('http://dist.nuget.org/win-x86-commandline/v3.1.0-beta/nuget.exe', 'C:\Tools\nuget\nuget.exe')
   - nuget list src\CasinoStrats.sln
   - nuget restore src\CasinoStrats.sln -Verbosity detailed -NoCache
   - nuget restore src\CasinoStrats.Core.Tests\project.json
