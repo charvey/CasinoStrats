@@ -1,0 +1,3 @@
+install:
+	- ps: iex ((New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/aspnet/Home/dev/dnvminstall.ps1'))
+	- dnvm upgrade
