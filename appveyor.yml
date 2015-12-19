@@ -3,4 +3,4 @@ install:
   - dnvm upgrade
 
 before_build:
-  - nuget restore src\CasinoStrats.sln
+  - nuget restore -verbosity detailed src\CasinoStrats.sln
