@@ -4,11 +4,11 @@ namespace CasinoStrats.Core
 {
     public class Player
     {
-        private decimal bankroll;
+        public decimal Bankroll { get; private set; }
 
         public Player(decimal bankroll)
         {
-            this.bankroll = bankroll;
+            this.Bankroll = bankroll;
         }
 
         public bool TryDeduct(decimal amount)
@@ -16,11 +16,19 @@ namespace CasinoStrats.Core
             if (amount < 0)
                 throw new ArgumentException("Deductions must be positive", nameof(amount));
 
-            if (bankroll < amount)
+            if (Bankroll < amount)
                 return false;
 
-            bankroll -= amount;
+            Bankroll -= amount;
             return true;
+        }
+
+        public void Pay(decimal amount)
+        {
+            if (amount < 0)
+                throw new ArgumentException("Payments must be positive", nameof(amount));
+
+            Bankroll += amount;
         }
     }
 }
