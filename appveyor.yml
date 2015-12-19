@@ -3,4 +3,6 @@ install:
   - dnvm upgrade
 
 before_build:
+  - nuget -help
   - nuget restore src\CasinoStrats.sln -Verbosity detailed -NoCache
+  - nuget restore src\CasinoStrats.Core.Tests\project.json
