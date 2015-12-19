@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using System;
+using Xunit;
 
 namespace CasinoStrats.Core.Tests
 {
@@ -28,16 +29,13 @@ namespace CasinoStrats.Core.Tests
         }
 
         [Theory]
-        [InlineData(-0)]
         [InlineData(-2.5)]
         [InlineData(-5)]
         public void TryDeduct_InvalidDeduction(decimal amount)
         {
             var player = new Player(5);
 
-            var result = player.TryDeduct(amount);
-
-            Assert.True(result);
+            Assert.Throws<ArgumentException>(() => player.TryDeduct(amount));
         }
     }
 }
