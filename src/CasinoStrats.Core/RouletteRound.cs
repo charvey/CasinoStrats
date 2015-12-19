@@ -11,6 +11,7 @@ namespace CasinoStrats.Core
         public RouletteRound()
         {
             bets = new Dictionary<Tuple<Player, RouletteBet>, decimal>();
+            pocket = new UnspunRoulettePocket();
         }
 
         public void PlaceBet(Player player, RouletteBet rouletteBet, decimal betAmount)
